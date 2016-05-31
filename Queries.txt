@@ -1,0 +1,14 @@
+Different Types Of Visa Status :
+select status, count(status) as Status_count from project1 group by status;
+Yearwise Application Statuses :
+select status, year(lca_case_submit) as yearcount(status)  as count from project1 group by status, year(lca_case_submit);
+Average Starting wage of Employer per year :
+select lca_case_wage_rate_from  as average, year(decision_date) as year from project1 where lca_case_wage_rate_unit = ‘YEAR’;
+Intensity of Visa Applications in Each year :
+select lca_case_employer_state, count(lca_case_employer_state) as State_Count from project1 group by lca_case_employer_state;
+No. of Application denied by each state :
+select lca_case_employer_state, count(status) as Denied_Count from project1 where status=‘DENIED’ group by lca_case_employer_state, status;
+Visa Applications of Australian Employees :
+select lca_case_employee_state, count(status) as Australia_Data fro project1 where visa_class = ‘E-3 Australian’ group by lca_case_employer_state, status;
+Intensity of Applicants from California State :
+select lca_case_employer_postal_code from project1 where lca_case_employer_state = 'CA‘; 
